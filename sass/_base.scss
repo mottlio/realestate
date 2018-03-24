@@ -35,11 +35,7 @@ body{
 }
 
 .container{
-    &>*{
-        padding: 40px;
-        font-size: 3rem;
-        color: grey;
-    }
+    
     display: grid;
     //could be min-content instead of auto
     grid-template-rows: 80vh auto 40vw repeat(3, min-content);
