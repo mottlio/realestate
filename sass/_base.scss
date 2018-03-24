@@ -13,3 +13,31 @@ $color-grey-dark-2: #6D5D4B;
 // FONT VARIABLES
 $font-primary: 'Nunito', sans-serif;
 $font-display: 'Josefin Sans', sans-serif;
+
+*,
+*:before,
+*:after{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html{
+    box-sizing: border-box; 
+    font-size: 62.5% //so that 1 rem = 10px, 10px/16px = 62.5%
+}
+
+body{
+    font-family: $font-primary;
+    color: $color-grey-dark-2;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.container{
+    display: grid;
+    //could be min-content instead of auto
+    grid-template-rows: 80vh auto 40vw repeat(3, min-content);
+    //sidebar is static 8rem the main section is 8 minmax columns centered between 2 1fr columns - this is the trend
+    grid-template-columns: [sidebar-start]8rem[sidebar-end full-start] 1fr [center-start]repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] 1fr [full-end];
+}
