@@ -35,9 +35,15 @@ body{
 }
 
 .container{
+    &>*{
+        padding: 40px;
+        font-size: 3rem;
+        color: grey;
+    }
     display: grid;
     //could be min-content instead of auto
     grid-template-rows: 80vh auto 40vw repeat(3, min-content);
     //sidebar is static 8rem the main section is 8 minmax columns centered between 2 1fr columns - this is the trend
-    grid-template-columns: [sidebar-start]8rem[sidebar-end full-start] 1fr [center-start]repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] 1fr [full-end];
+    //I only name the columns - the focus is on columns and not so much on the rows, columns always more important
+    grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
 }
