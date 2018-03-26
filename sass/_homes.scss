@@ -1,4 +1,93 @@
 .homes{
-    background-color: $color-secondary;
     grid-column: center-start / center-end;
+    margin: 15rem 0;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 7rem;
+
+    .home{
+        background-color: $color-grey-light-1;
+        //NESTED GRID
+        display: grid;
+        grid-row-gap: 3.5rem;
+        grid-template-columns: repeat(2, 1fr);
+        overflow: hidden;
+        backface-visibility: hidden;
+
+        &__img{
+            width: 100%;
+            grid-column: 1 / span 2;
+            grid-row: 1 / 2;
+            z-index: 0;
+            //transform: scale(1);
+            transition: all .5s ease-in-out;
+            
+
+            &:hover{
+                transform: scale(1.02);
+            }
+
+        }
+
+
+
+        &__name {  
+            width: 100%;
+            grid-column: 1 / span 2;
+            background-color: $color-secondary;
+            grid-row: 1 / 2;
+            color: #fff;
+            font-family: $font-display;
+            text-transform: uppercase;
+            font-size: 1.3rem;
+            font-weight: 100;
+            width: 80%;
+            text-align: center;
+            align-self: end;
+            justify-self: center;
+            padding: 1rem 0;
+            transform: translateY(50%);
+            z-index: 2;
+            box-shadow: 0 3px 5px rgba(black, 0.5);
+        }
+
+        &__like{
+            grid-row: 1/2;
+            grid-column: 2/3;
+            height: 2.5rem;
+            width: 2.5rem;
+            fill: $color-primary;
+            z-index: 2;
+            justify-self: end;
+            margin: 1rem;
+        }
+
+        &__btn{
+            grid-column: 1 / span 2;
+        }
+
+        &__location,
+        &__rooms{
+            margin-top: 2rem;
+        }
+
+        &__location,
+        &__rooms,
+        &__price,
+        &__area{
+            display: flex;
+            //justify-content: space-around;
+            align-items: center;
+            font-size: 1.5rem;
+            margin-left: 2rem;
+            svg {
+                fill: $color-primary;
+                height: 2rem;
+                width: 2rem;
+                margin-right: 1rem;
+            }
+
+        }
+    }
 }
