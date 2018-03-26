@@ -18,6 +18,7 @@ $font-display: 'Josefin Sans', sans-serif;
 
 $bp-largest: 75em; //1200px / 16px (default size for browsers) = 75em;
 $bp-large: 62.5em; //1000px / 16px = 62.5
+$bp-medium: 50em; //800px
 
 
 
@@ -49,13 +50,27 @@ body{
     
     display: grid;
     //could be min-content instead of auto
-    grid-template-rows: 80vh auto 40vw repeat(3, min-content);
+    grid-template-rows: 80vh  auto  40vw repeat(3, min-content);
     //sidebar is static 8rem the main section is 8 minmax columns centered between 2 1fr columns - this is the trend
     //I only name the columns - the focus is on columns and not so much on the rows, columns always more important
     grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
 
     @media only screen and (max-width: $bp-large){
-        font-size: 50%; //so that 1 rem = 8px, 8px/16px = 50%
+        //we're moving the sidebar from side to top - I remove the first column and add a row of 6 rem
+        grid-template-rows: 6rem  80vh auto  40vw repeat(3, min-content);
+        grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+
+    }
+
+    @media only screen and (max-width: $bp-medium){
+        //we're moving the sidebar from side to top - I remove the first column and add a row of 6 rem
+        
+        //grid-template-rows: 6rem  calc(100vh - 6rem) min-content min-content  min-content repeat(3, min-content);
+
+        //because at this stage nearly all rows are sized by the content - we can get rid of all the min-content's -> it will be done automatically by the implicit grid
+
+        grid-template-rows: 6rem  calc(100vh - 6rem);
+        
     }
 
 }

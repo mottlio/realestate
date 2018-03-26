@@ -5,6 +5,18 @@
     display: flex;
     justify-content: center;
     padding: 4rem 0;
+
+    @media only screen and (max-width: $bp-large){
+        //we're moving the sidebar to the top
+        grid-column: full-start / full-end;
+        grid-row: 1/2;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 0 2rem;
+    }
+
+
+    
 }
 
 .nav-btn{
