@@ -14,6 +14,13 @@ $color-grey-dark-2: #6D5D4B;
 $font-primary: 'Nunito', sans-serif;
 $font-display: 'Josefin Sans', sans-serif;
 
+//RESPONSIVE BREAKPOINTS
+
+$bp-largest: 75em; //1200px / 16px (default size for browsers) = 75em;
+$bp-large: 62.5em; //1000px / 16px = 62.5
+
+
+
 *,
 *:before,
 *:after{
@@ -24,7 +31,11 @@ $font-display: 'Josefin Sans', sans-serif;
 
 html{
     box-sizing: border-box; 
-    font-size: 62.5% //so that 1 rem = 10px, 10px/16px = 62.5%
+    font-size: 62.5%; //so that 1 rem = 10px, 10px/16px = 62.5%
+
+    @media only screen and (max-width: $bp-largest){
+        font-size: 50%; //so that 1 rem = 8px, 8px/16px = 50%
+    }
 }
 
 body{
@@ -42,4 +53,9 @@ body{
     //sidebar is static 8rem the main section is 8 minmax columns centered between 2 1fr columns - this is the trend
     //I only name the columns - the focus is on columns and not so much on the rows, columns always more important
     grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+
+    @media only screen and (max-width: $bp-large){
+        font-size: 50%; //so that 1 rem = 8px, 8px/16px = 50%
+    }
+
 }
